@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informacion Escolar - Grupo de Clase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        h1 {
+            color: #2575fc;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            color: #6a11cb;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .search-box {
+            margin: 20px auto;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-box i {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            color: #6a11cb;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .schedule {
+            margin-bottom: 15px;
+        }
+        
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .teacher-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .teacher-icon {
+            width: 40px;
+            height: 40px;
+            background: #6a11cb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #2575fc;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #6a11cb;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            margin-top: 30px;
+        }
+        
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>IFTS N°4 Analisis de Sistemas</h1>
+            <p class="subtitle">Todo lo que necesitas saber sobre horarios, clases y contactos</p>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar materia, profesor o horario...">
+                <i class="fas fa-search"></i>
+            </div>
+        </header>
+        
+        <div class="content">
+            <!-- Materia 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Modelado y diseño de software</h2>
+                </div>
+                <div class="card-body">
+                    <div class="schedule">
+                        <div class="schedule-item">
+                            <span>Lunes</span>
+                            <span>18:30 - 21:30</span>
+                        </div>
+                    </div>
+                    
+                    <div class="teacher-info">
+                        <div class="teacher-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <strong>Prof. Marcos Fausto Quispe Velasquez</strong>
+                            <p>marcos.quispe@bue.edu.ar</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://meet.google.com/bqi-urfz-zpo" class="btn">
+                        <i class="fas fa-video"></i> Unirse a la clase
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Materia 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Practicas Profesionales I</h2>
+                </div>
+                <div class="card-body">
+                    <div class="schedule">
+                        <div class="schedule-item">
+                            <span>Martes</span>
+                            <span>18:30 - 21:30</span>
+                        </div>
+                    </div>
+                    
+                    <div class="teacher-info">
+                        <div class="teacher-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <strong>Prof. Maria Paula Perez Willis</strong>
+                            <p>mariap.perez@bue.edu.ar</p>
+                        </div>
+                    </div>
+                    
+                    <a href=" https://meet.google.com/csy-ixac-ijn" class="btn">
+                        <i class="fas fa-video"></i> Unirse a la clase
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Materia 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Ingles Tecnico</h2>
+                </div>
+                <div class="card-body">
+                    <div class="schedule">
+                        <div class="schedule-item">
+                            <span>Miercoles</span>
+                            <span>18:30 - 21:30</span>
+                        </div>
+                    </div>
+                    
+                    <div class="teacher-info">
+                        <div class="teacher-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <strong>Prof. Andrea Mackiewicz</strong>
+                            <p>ifts4ingles@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://us04web.zoom.us/j/71964430054?pwd=m2YQalWTwKfrmIsvbAzW1csHBlp6YG.1" class="btn">
+                        <i class="fas fa-video"></i> Unirse a la clase
+                        <!---ID de reunión: 719 6443 0054 -- Código de acceso: IFTS42C--->
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Materia 4 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Desarrollo de Sistemas Orientado a Objetos</h2>
+                </div>
+                <div class="card-body">
+                    <div class="schedule">
+                        <div class="schedule-item">
+                            <span>Jueves</span>
+                            <span>18:30 - 21:30</span>
+                        </div>
+                    </div>
+                    
+                    <div class="teacher-info">
+                        <div class="teacher-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <strong>Prof. Luis Alberto Perez</strong>
+                            <p>lui.perez@bue.edu.ar</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://meet.google.com/xjj-csnc-gdy" class="btn">
+                        <i class="fas fa-video"></i> Unirse a la clase
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Materia 5 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Estadisticas y probabilidades para el Analisis de Sistemas</h2>
+                </div>
+                <div class="card-body">
+                    <div class="schedule">
+                        <div class="schedule-item">
+                            <span>Viernes</span>
+                            <span>18:30 - 21:30</span>
+                        </div>
+                    </div>
+                    
+                    <div class="teacher-info">
+                        <div class="teacher-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <strong>Prof. Matias Cerdeira</strong>
+                            <p>matias.cerdeira@bue.edu.ar</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://zoom.us/j/9876543210" class="btn">
+                        <i class="fas fa-video"></i> Unirse a la clase
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Materia 6 
+            <div class="card">
+                <div class="card-header">
+                    <h2>Educación Física</h2>
+                </div>
+                <div class="card-body">
+                    <div class="schedule">
+                        <div class="schedule-item">
+                            <span>Lunes y Miércoles</span>
+                            <span>16:00 - 17:30</span>
+                        </div>
+                    </div>
+                    
+                    <div class="teacher-info">
+                        <div class="teacher-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <strong>Prof. Javier Romero</strong>
+                            <p>javier.romero@colegio.edu</p>
+                        </div>
+                    </div>
+                    
+                    <p class="note">* Las clases de educación física son presenciales en el polideportivo del colegio.</p>
+                </div>
+            </div>
+        </div>
+        --->
+        <div class="footer">
+            <p>© 2025 Información Escolar - Grupo Analisis de Sistemas | <a href="#">Cómo actualizar información</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidad de búsqueda básica
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const searchText = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                if (cardText.includes(searchText)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // Simular carga de datos
+        console.log("Página cargada correctamente");
+        console.log("Los enlaces y horarios son demostrativos");
+    </script>
+</body>
+</html>
